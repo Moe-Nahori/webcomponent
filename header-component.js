@@ -13,56 +13,115 @@
             .cta {
                 position: relative;
             }
-            
             .mobile-phone-number {
               position: fixed;
               width: 100%;
               top: 0;
               left: 0;
-              background: red; /* Red background for visibility */
-              z-index: 10;
+              z-index:10;
+              background: red; /* This will be hidden by the border animation */
               height: 1cm; /* Set height to 1 cm */
               display: flex;
-              align-items: center; /* Center content vertically */
-              justify-content: center; /* Center content horizontally */
-              box-shadow: 0 0 15px 5px rgba(0,0,0,0.3); /* Gradient shadow */
-              transition: box-shadow 0.5s ease-out; /* Transition for glow effect */
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 0 15px 5px rgba(0,0,0,0.3)
+              position: relative;
+              overflow:hidden;
           }
           
-          .phone-icon {
-            width: 24px;
-            height: 24px;
+          /* Create the animated border using a pseudo-element */
+          .mobile-phone-number::before {
+              content: '';
+              position: absolute;
+              top: 0; left: 0;
+              width: 100%; height: 140%;
+              box-sizing: border-box;
+              z-index: 1;
+              background-image: radial-gradient(circle, #ffff80 0%, #ffff00 50%, rgba(255, 255, 0, 0.5) 100%);
+              background-origin: border-box;
+              background-clip: padding-box; /* Clips the background to the padding area */
+              animation: rotate 10s linear infinite;
           }
+
+          /* Define the rotation animation for the gradient */
+          @keyframes rotate {
+              0% {
+                  transform: rotate(0deg);
+              }
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .mobile-phone-number::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            background-color: red; /* This can be adjusted as needed */
+            z-index: 2; /* Adjust if necessary for proper layering */
+        }
           
+          .mobile-phone-number img {
+            width: 30px; /* Adjust this value as needed */
+            height: auto; /* Maintains aspect ratio */
+            max-height: 0.9cm; /* Ensures the height does not exceed 1cm */
+            animation: pulse 3s infinite ease-in-out;
+            z-index:10;
+
+        }
           .mobile-phone-number a {
               text-decoration: none; /* Remove underline */
               color: white; /* Set text color */
+              font-size: 1.5em; 
               display: flex;
               align-items: center; /* Align icon with text */
               justify-content: center;
               width: 100%; /* Fill the entire width of the parent */
               height: 100%; /* Fill the entire height of the parent */
+              z-index:10;
           }
-            
+      
+           @keyframes pulse {
+              0%, 100% { transform: scale(1); }
+              50% { transform: scale(1.1); }
+         }
+    
+    
+        
             /* Adjustments for toggle-and-title to align properly */
             .toggle-and-title {
                 display: flex;
                 align-items: center;
-                padding-top: 1cm; /* Adjusted based on the height of the mobile-phone-number */
+                padding-top: 1cm;
             }
             
             .navbar-toggle {
                 position: fixed;
-                width: 10vw;
+                flex: 0 0 20%;
                 left: 0;
                 top: 1cm; /* Adjusted based on the height of the mobile-phone-number */
                 z-index: 9;
+                cursor: pointer; /* Changes the cursor to a pointer */
+                background: transparent; /* Removes any default background */
+                border: none; /* Removes any default border */
+                outline: none; /* Removes outline on focus for accessibility */
+                font-size: 24px; /* Adjust the size of the hamburger icon */
+                color: #333; 
+            }
+            navbar-toggle:hover {
+                color: #666; /* Darken the icon on hover */
+            }
+        
+            /* Focus and Active Effect */
+            .navbar-toggle:focus, .navbar-toggle:active {
+                color: #999; /* Change the color when active or focused */
+            }
+            h1{
+                flex: 0 0 80%;
+                margin-left: auto;
+                padding-right: 20px;
+
             }
             
-            h1 {
-                margin-left: 10vw;
-                padding: 0 10px;
-            }
             
             </style>
             <header class="cta">
