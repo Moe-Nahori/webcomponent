@@ -5,13 +5,16 @@
         
         // Create a shadow DOM for your component
         this.attachShadow({ mode: 'open' });
-        
+         
         // Define the HTML content and styles for your component
         this.shadowRoot.innerHTML = `
             <style>
             /* Common styles for the header */
             .cta {
                 position: relative;
+            }
+            .logo{
+                display:none;
             }
             .mobile-phone-number {
               position: fixed;
@@ -121,10 +124,53 @@
                 padding-right: 20px;
 
             }
+            @media (min-width: 768px) {
+                .cta {
+                    display: flex; /* Enable flexbox */
+                    align-items: center; /* Align items vertically in the center */
+                    justify-content: space-between; /* Distribute space between items */
+                }
             
+                .logo {
+                    display: block;
+                    flex: 0 0 20%; /* Allocate 20% width, don't grow or shrink */
+                    max-width: 100px; /* Limit maximum width */
+                    height: auto;
+                }
+            
+                h1 {
+                    flex-grow: 0.8;
+                }
+            
+                .mobile-phone-number {
+                    display: block;
+                    flex: 0 0 20%; /* Allocate 20% width for large screens */
+                    position: static; /* Override fixed positioning */
+                    width: auto; /* Reset width */
+                    top: auto; /* Reset top positioning */
+                    left: auto; /* Reset left positioning */
+                    z-index: auto; /* Reset z-index */
+                    height: auto; /* Reset height */
+                    box-shadow: none; /* Reset box-shadow */
+                    animation: none; /* Remove animation */
+                    order:3;
+                    /* Apply any additional styles needed for large screens */
+                }
+                .mobile-phone-number::before,
+                .mobile-phone-number::after {
+                 content: none; /* Remove the content */
+                 display: none; /* Hide the pseudo-elements */
+               /* Reset other properties if they were set for these pseudo-elements */
+               }
+            
+                .navbar-toggle {
+                    display: none; /* Hide the hamburger menu on larger screens */
+                }
+            }
             
             </style>
             <header class="cta">
+            <img src="/images/icar_wrecker_logo_new_1.webp" alt="Logo" class="logo">
                 <div class="mobile-phone-number">
                     <a href="tel:0470553519" aria-label="Call us at 0470 553 519">
                         <img src="/images/phone-icon.svg" alt="Phone Icon">
@@ -133,13 +179,17 @@
                 </div>
                 <div class="toggle-and-title">
                     <button class="navbar-toggle" aria-label="Toggle navigation">&#9776;</button>
-                    <h1>Perth's Top Cash for Eco-Friendly Car Disposal!</h1>
+                    <h1>Welcome to our site</h1>
                 </div>
             </header>
         `;
         this.fetchHeader();
+
+        // Now that the HTML is defined, select the elements
+        
     }
-  
+   
+    
     fetchHeader() {
        // console.log('fetchHeader method called');
         let currentPage = window.location.pathname;
