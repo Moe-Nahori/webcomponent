@@ -126,6 +126,8 @@
             }
             @media (min-width: 768px) {
                 .cta {
+                    position:fixed;
+                    top:0;
                     display: flex; /* Enable flexbox */
                     align-items: center; /* Align items vertically in the center */
                     justify-content: space-between; /* Distribute space between items */
