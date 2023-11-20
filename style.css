@@ -1,0 +1,742 @@
+
+.slideshow-container {
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 6cm; 
+    height: 100%;
+    max-height: 400px;
+}
+
+/* Style for each slide */
+.slide {
+    display: none; /* By default, hide all slides */
+    width: 100%;
+   height: 400px;
+    text-align: center; /* Center the image inside each slide */
+}
+
+/* Style for the images inside each slide */
+.slide img {
+    height:100%;
+    max-width: 100%; 
+  object-fit: contain; /* Ensure the image scales proportionally and fits within its container */
+    display: block; /* Display the image as block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+.slide:first-of-type {
+  display: block;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+}
+
+.content-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.info-section {
+    padding: 20px 0;
+}
+
+.article-content h1, .article-content h2, .article-content h3, .article-content h4 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.article-content p {
+    margin-bottom: 15px;
+}
+
+.article-content h1 {
+    font-size: 24px;
+}
+
+.article-content h2 {
+    font-size: 22px;
+}
+
+.article-content h3 {
+    font-size: 20px;
+}
+
+.article-content h4 {
+    font-size: 18px;
+}
+
+.article-content p {
+    font-size: 16px;
+}
+.process-container {
+    display: flex;
+    flex-direction: column; /* Default to column (stacked) on mobile */
+    gap: 20px; /* Optional: Creates space between the two process steps */
+    background-color: grey; /* Grey background color */
+    padding: 20px; /* Adds some padding around the content inside the container */
+    border-radius: 10px; /* Optional: Gives rounded corners to the container */
+}
+.process-step {
+    background-color: #ffffff; /
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+   text-align: center;
+}
+.new-quote-form-toggle {
+    background-color: #4CAF50; /* A pleasant green color */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition effect for hover */
+    margin-top: 10px;
+}
+
+.new-quote-form-toggle:hover {
+    background-color: #45a049; /* A slightly darker shade for hover effect */
+}
+
+/* Style for the "Call Us Now" button */
+.new-call-button {
+    background-color: #FF5733; /* A vibrant orange color */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition effect for hover */
+    margin-top: 10px;
+}
+
+.new-call-button:hover {
+    background-color: #e55028; /* A slightly darker shade for hover effect */
+}
+
+/* Optional: Remove the underline from the link inside the button */
+.new-call-button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Container for all cards */
+.workflow-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+/* Individual Card Style */
+.workflow-card {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: calc(33.333% - 40px);
+  text-align: center;
+}
+
+/* Card Image */
+.workflow-card img {
+  max-width: 70px;
+  margin-bottom: 15px;
+}
+
+/* Card Title */
+.workflow-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Card Text */
+.workflow-card p {
+  font-size: 1em;
+  color: #333;
+}
+/* Tick Icon Style */
+.tick-icon {
+  color: green;
+  margin-right: 5px;
+  border: 2px solid green;
+  border-radius: 50%;
+  padding: 2px 4px;
+  display: inline-block;
+  text-align: center;
+}
+ul li img {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px; /* Adds spacing between the image and the text */
+    vertical-align: middle; /* Aligns the image with the middle of the text line */
+}
+
+@media (max-width: 768px) {
+  .workflow-card {
+    width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .workflow-card {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+.benefits-card {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #342acb;
+    animation: pulsateBorder 10s ease-in-out infinite, snakeRun 10s infinite linear; 
+}
+
+.benefits-card .green-tick {
+    color: #32CD32;
+    font-size: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    border: 2px solid #32CD32;
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.benefits-card .green-tick:hover {
+    background-color: #32CD32;
+    color: #f8f8f8;
+    transform: scale(1.1);
+}
+
+.benefits-card h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.benefits-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.benefits-card li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.benefits-card img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.green-tick {
+    color: #32CD32;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.benefits-card::before {
+    content: '';
+    position: absolute;
+    border: 2px solid #000000;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 190px, #FF4500 190px, #FF4500 200px); /* Changed color to OrangeRed */
+    border-radius: inherit;
+    z-index: -1;
+    animation: snakeRun 10s infinite linear;
+}
+
+@keyframes snakeRun {
+    0% {
+        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%, 100% 0%, 0% 0%, 0% 0%;
+    }
+    75% {
+        background-position: 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+    }
+    100% {
+        background-position: 0% 0%, 0% 100%, 100% 100%, 100% 0%;
+    }
+}
+
+@keyframes pulsateBorder {
+    0%, 20%, 80%, 100% {
+        border-color: #342acb;
+        box-shadow: 0 0 10px #342acb, 0 0 20px #342acb, 0 0 30px #342acb, 0 0 40px #342acb2;
+    }
+    50% {
+        border-color: transparent;
+        box-shadow: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.article-content blockquote {
+    border-left: 4px solid green;
+    margin: 20px 0;
+    padding-left: 15px;
+}
+
+.article-content blockquote cite {
+    display: block;
+    text-align: left;
+}
+
+
+@media only screen and (min-width: 371px) and (max-width: 769px) {
+  header.cta h1 {
+    padding-top:80 px;
+      font-size: 18px;
+      width : 100%;
+     max-width: calc(100vw - 40px);
+    
+  }
+  .article-content h1 {
+      font-size: 28px;
+  }
+
+  .article-content h2 {
+      font-size: 26px;
+  }
+
+  .article-content h3 {
+      font-size: 24px;
+  }
+
+  .article-content h4 {
+      font-size: 22px;
+  }
+
+  .article-content p {
+      font-size: 18px;
+  }
+} 
+
+/* Styles for screens larger than 769px */
+@media only screen and (min-width: 770px) {
+  .article-content h1 {
+      font-size: 32px;
+  }
+
+  .article-content h2 {
+      font-size: 30px;
+  }
+
+  .article-content h3 {
+      font-size: 28px;
+  }
+
+  .article-content h4 {
+      font-size: 26px;
+  }
+
+  .article-content p {
+      font-size: 20px;
+  }
+  .slideshow-container {
+      
+      margin-top: 5cm; 
+      max-height: 500px;
+  }
+   .slide{
+     height:500px;
+   }
+  .slide img {
+      height:100%;
+      max-width: 100%; 
+      object-fit: contain
+      
+  }
+  .process-container {
+      flex-direction: row; 
+      justify-content: space-between; 
+  }
+  .process-step {
+      width: 48%; 
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------------
+Style for the quote form
+
+------------------------------------ */
+
+
+.quote-form-section {
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+   width:100%;
+}
+
+/* Heading of the Form */
+.quote-form-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #4CAF50;
+}
+
+/* Styling for Form Labels */
+#quote-form label {
+  display: block;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+#quote-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+  transition: border-color 0.2s;
+}
+
+#quote-form input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+/* Add an asterisk after each label that precedes an input with the "required" attribute */
+#quote-form label[for]:not([for="email"]):not([for="message"])::after {
+  content: " *";
+  color: red;
+}
+/* Styling for the Message Textarea */
+#quote-form textarea#message {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+  transition: border-color 0.2s;
+  resize: none; 
+}
+
+#quote-form textarea#message:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+/* -----------------------------------
+Style for the form submit button
+
+------------------------------------ */
+
+
+
+
+
+#quote-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background-color: #ee111c;
+  color: whitesmoke;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#quote-form button:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
+
+
+/* -----------------------------------
+  style for call button with 
+  phone icon
+
+------------------------------------ */
+
+/* CSS for the call button */
+#callButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: #11a235;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0; /* Reduced neon green glow */*/
+  border: none;
+  text-decoration: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transition: transform 0.2s, background-color 0.2s;
+  overflow: hidden;
+  z-index: 100;
+}
+#callButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  animation: shine 3s ease-in-out infinite;
+  animation-delay: 7s;
+}
+
+#callButton:hover {
+  transform: scale(1.1);
+  background-color: #333;
+}
+
+#callButton img {
+  max-width: 30px;
+  height: auto;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------------
+Style for the quote form
+
+------------------------------------ */
+
+
+.quote-form-section {
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+   width:100%;
+}
+
+/* Heading of the Form */
+.quote-form-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #4CAF50;
+}
+
+/* Styling for Form Labels */
+#quote-form label {
+  display: block;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+#quote-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+  transition: border-color 0.2s;
+}
+
+#quote-form input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+/* Add an asterisk after each label that precedes an input with the "required" attribute */
+#quote-form label[for]:not([for="email"]):not([for="message"])::after {
+  content: " *";
+  color: red;
+}
+/* Styling for the Message Textarea */
+#quote-form textarea#message {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+  transition: border-color 0.2s;
+  resize: none; 
+}
+
+#quote-form textarea#message:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+/* -----------------------------------
+Style for the form submit button
+
+------------------------------------ */
+
+
+
+
+
+#quote-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background-color: #ee111c;
+  color: whitesmoke;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#quote-form button:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
+
+
+/* -----------------------------------
+  style for call button with 
+  phone icon
+
+------------------------------------ */
+
+/* CSS for the call button */
+#callButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: #11a235;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0; /* Reduced neon green glow */*/
+  border: none;
+  text-decoration: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transition: transform 0.2s, background-color 0.2s;
+  overflow: hidden;
+  z-index: 100;
+}
+#callButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  animation: shine 3s ease-in-out infinite;
+  animation-delay: 7s;
+}
+
+#callButton:hover {
+  transform: scale(1.1);
+  background-color: #333;
+}
+
+#callButton img {
+  max-width: 30px;
+  height: auto;
+ 
+}

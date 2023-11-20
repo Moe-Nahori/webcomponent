@@ -1,5 +1,6 @@
 <!-- This is navbar.php -->
-
+<button class="quote-form-toggle" aria-label="Toggle Quote Form">&#9998; Get Quote</button>
+<nav>
     <ul class="navbar">
         <li><a href="/index.php">Home</a></li>
         <li class="dropdown">

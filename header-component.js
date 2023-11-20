@@ -10,6 +10,11 @@
         this.shadowRoot.innerHTML = `
             <style>
             /* Common styles for the header */
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Optional: ensures padding/border are included in width/height */
+        }
             .cta {
                 position: relative;
             }
@@ -48,13 +53,23 @@
 
           /* Define the rotation animation for the gradient */
           @keyframes rotate {
-              0% {
-                  transform: rotate(0deg);
-              }
-              100% {
-                  transform: rotate(360deg);
-              }
-          }
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(90deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            75% {
+                transform: rotate(270deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
           .mobile-phone-number::after {
             content: '';
             position: absolute;
@@ -81,6 +96,7 @@
               width: 100%; /* Fill the entire width of the parent */
               height: 100%; /* Fill the entire height of the parent */
               z-index:10;
+              white-space: nowrap;
           }
       
            @keyframes pulse {
@@ -120,50 +136,66 @@
             }
             h1{
                 flex: 0 0 80%;
+                position: relative;
                 margin-left: auto;
                 padding-right: 20px;
 
             }
             @media (min-width: 768px) {
                 .cta {
-                    position:fixed;
-                    top:0;
+                    position: fixed;
+                    width:100%;
+                    max-width:100vw;    
+                    box-sizing: border-box;
+                    background-color: white;
+                    top: 0;
+                    left:0;
                     display: flex; /* Enable flexbox */
-                    align-items: center; /* Align items vertically in the center */
-                    justify-content: space-between; /* Distribute space between items */
+                    align-items: center; /* Vertically centers the children */
+                    justify-content: center; /* Horizontally centers the children */
                 }
             
                 .logo {
                     display: block;
                     flex: 0 0 20%; /* Allocate 20% width, don't grow or shrink */
                     max-width: 100px; /* Limit maximum width */
-                    height: auto;
-                }
-            
+                    height: 3cm;
+                   }
+                  .toggle-and-title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-top: unset;
+                    }
                 h1 {
-                    flex-grow: 0.8;
-                }
-            
+
+                        flex: 0 0 80%;
+                        margin-left: unset;
+                        padding-right:unset;
+                        text-align: center;
+        
+                   }
+
+
+    
                 .mobile-phone-number {
-                    display: block;
                     flex: 0 0 20%; /* Allocate 20% width for large screens */
                     position: static; /* Override fixed positioning */
                     width: auto; /* Reset width */
                     top: auto; /* Reset top positioning */
                     left: auto; /* Reset left positioning */
-                    z-index: auto; /* Reset z-index */
-                    height: auto; /* Reset height */
+                    height: 3cm; /* Reset height */
                     box-shadow: none; /* Reset box-shadow */
-                    animation: none; /* Remove animation */
                     order:3;
+                    position:relative;
                     /* Apply any additional styles needed for large screens */
                 }
-                .mobile-phone-number::before,
-                .mobile-phone-number::after {
-                 content: none; /* Remove the content */
-                 display: none; /* Hide the pseudo-elements */
-               /* Reset other properties if they were set for these pseudo-elements */
-               }
+                .mobile-phone-number::before {
+                    animation: rotate 5s linear infinite;
+                }
+                .mobile-phone-number a {
+                    font-size: calc(1vw + 1vh + 1.3vmin); 
+                   }
             
                 .navbar-toggle {
                     display: none; /* Hide the hamburger menu on larger screens */
@@ -186,10 +218,55 @@
             </header>
         `;
         this.fetchHeader();
-
-        // Now that the HTML is defined, select the elements
+    
         
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        // Toggle visibility of the navList when the .navbar-toggle button is clicked.
+        document.querySelectorAll('.navbar-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function(event) {
+                console.log("navbar clicked");
+                var navbar = document.querySelector('.navbar');
+                if (navbar.style.display === 'none' || navbar.style.display === '') {
+                    navbar.style.display = 'block';
+                } else {
+                    navbar.style.display = 'none';
+                }
+                event.stopPropagation(); // Prevent the document click event from firing
+            });
+        });
+    
+        // Hide the navbar when clicked outside
+        document.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                var navbar = document.querySelector('.navbar');
+                if (navbar) {
+                    navbar.style.display = 'none';
+                }
+                document.querySelectorAll('.submenu').forEach(function(submenu) {
+                    submenu.style.display = 'none';
+                });
+            }
+        });
+    
+        // Toggle visibility of submenu on dropdown click (for smaller screens)
+        document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+            dropdown.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    var submenu = this.querySelector('.submenu');
+                    if (submenu.style.display === 'none' || submenu.style.display === '') {
+                        submenu.style.display = 'block';
+                    } else {
+                        submenu.style.display = 'none';
+                    }
+                    this.classList.toggle('expanded'); // Toggle the expanded class
+                    event.stopPropagation(); // Prevent the document click event from firing
+                    event.preventDefault();  // Prevent default action
+                }
+            });
+        });
+    });
+   
    
     
     fetchHeader() {
